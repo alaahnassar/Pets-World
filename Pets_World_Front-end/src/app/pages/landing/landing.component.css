@@ -1,0 +1,84 @@
+h1 {
+  font-size: 75px;
+  letter-spacing: -.025em;
+  line-height: 90px;
+}
+
+h2 {
+
+  font-size: 60px;
+  line-height: 60px;
+}
+
+h4 {
+  font-size: 30px;
+  font-weight: 500;
+  color: #000000;
+}
+
+.header-content {
+  padding-top: 100px;
+  position: absolute;
+  top: 0;
+  /* left: 0; */
+  width: 400px;
+  height: 100%;
+}
+
+.overlay {
+  background-color: #108896;
+  height: 100vh;
+  opacity: 0.6 !important;
+  width: 40vw;
+  top: 0;
+  border-radius: 0 50% 50% 0;
+}
+
+.about {
+  padding: 80px 0px;
+  overflow: hidden;
+  background-color: #f5f3ee !important;
+}
+
+.title::before {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 2px;
+  background: rgba(239, 80, 48, 0.2);
+  margin-right: 0px;
+}
+
+.title::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 2px;
+  background: rgba(239, 80, 48, 0.2);
+  margin-left: 0px;
+}
+
+.about img {
+  border-style: solid;
+  border-width: 0px 0px 20px 0px;
+  border-color: #108896;
+  border-radius: 40px 40px 40px 40px;
+}
+
+
+
+.services {
+  padding-top: 50px;
+
+}
+
+.services .card {
+  box-shadow: 2px 0px 20px #cecece;
+  border: none;
+}
+
+.services a,
+.header-content a,
+.about a {
+  width: 150px !important;
+}

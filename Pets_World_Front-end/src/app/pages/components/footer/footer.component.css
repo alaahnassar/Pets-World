@@ -1,0 +1,14 @@
+.list-inline-item a i {
+  border: 5px solid #108896;
+  padding: 10px;
+  border-radius: 50%;
+  margin: 0 10px 0 0;
+  color: white;
+  font-size: 19px;
+}
+
+.list-inline-item a i:hover {
+  border: 5px solid white;
+  color: #f19f1f;
+
+}

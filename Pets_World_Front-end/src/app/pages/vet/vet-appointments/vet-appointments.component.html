@@ -1,0 +1,143 @@
+<h1 class="text-center my-5">Appointments</h1>
+<section class="container">
+  <div class="d-flex justify-content-end">
+    <button class="btn-orange" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="resetForm()">
+      Add Appointment
+    </button>
+  </div>
+  <div class="row">
+    <div *ngFor="let appointment of pagedAppointments" class="p-3 col-md-3">
+      <div class="appointment card">
+        <h2 class="text-capitalize text-p">{{ appointment.day | date : "EEEE" }}</h2>
+        <h2 class="text-capitalize text-p">{{ formatDate(appointment.day) }}</h2>
+        <h2 class="text-capitalize text-p">
+          {{ appointment.start_time }} to {{ appointment.end_time }}
+        </h2>
+        <h2 class="text-capitalize text-p">
+          Clients left: {{ appointment.number_of_clients }}
+        </h2>
+        <div class="d-flex justify-content-center">
+          <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn-green-solid mx-2"
+            (click)="fillForm(appointment)">
+            Edit
+          </button>
+          <button class="btn-orange-solid" (click)="deleteVetAppointment(appointment._id)">
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="my-3">
+    <mat-paginator [length]="appointments?.length" [pageSize]="pageSize" (page)="onPageChange($event)">
+    </mat-paginator>
+  </div>
+</section>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">
+          {{ modelStatus == "Add" ? "Add appointment" : "Edit appointment" }}
+        </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="appointmentFormGroup">
+          <div class="row">
+            <div class="col-md-12">
+              <mat-form-field class="w-100 pb-3">
+                <input matInput formControlName="number_of_clients" />
+                <mat-label>Number of clients</mat-label>
+                <mat-error *ngIf="
+                  appointmentFormGroup.get('number_of_clients')?.invalid &&
+                  appointmentFormGroup.get('number_of_clients')?.touched &&
+                  appointmentFormGroup.get('number_of_clients')?.errors?.['required']">
+                  Number of clients is required.
+                </mat-error>
+                <mat-error
+                  *ngIf="appointmentFormGroup.get('number_of_clients')?.touched && appointmentFormGroup.get('number_of_clients')?.errors?.['min']">
+                  number of clients can't be zero
+                </mat-error>
+                <mat-error
+                  *ngIf="appointmentFormGroup.get('number_of_clients')?.touched && appointmentFormGroup.get('number_of_clients')?.errors?.['pattern']">
+                  number of clients should have numbers only
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="col-md-6" *ngIf="modelStatus == 'Add'">
+              <mat-form-field class="w-100 pb-3">
+                <input matInput formControlName="start_date" [matDatepicker]="startPicker" required />
+                <mat-label>Start date</mat-label>
+                <mat-datepicker-toggle matIconSuffix [for]="startPicker"></mat-datepicker-toggle>
+                <mat-datepicker #startPicker></mat-datepicker>
+                <mat-error *ngIf="
+                    appointmentFormGroup.get('start_date')?.invalid &&
+                    (appointmentFormGroup.get('start_date')?.touched ||
+                      appointmentFormGroup.get('start_date')?.dirty)
+                  ">
+                  Start date is required
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="col-md-6" *ngIf="modelStatus == 'Add'">
+              <mat-form-field class="w-100 pb-3">
+                <input matInput formControlName="end_date" [matDatepicker]="endPicker" required />
+                <mat-label>End date</mat-label>
+                <mat-datepicker-toggle matIconSuffix [for]="endPicker"></mat-datepicker-toggle>
+                <mat-datepicker #endPicker></mat-datepicker>
+                <mat-error *ngIf="
+                    appointmentFormGroup.get('end_date')?.invalid &&
+                    (appointmentFormGroup.get('end_date')?.touched ||
+                      appointmentFormGroup.get('end_date')?.dirty)
+                  ">
+                  End date is required
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col-md-6">
+              <mat-form-field class="w-100 pb-3">
+                <input matInput [ngxTimepicker]="startTime" formControlName="start_time" />
+                <mat-label>Start time</mat-label>
+                <ngx-material-timepicker #startTime></ngx-material-timepicker>
+                <mat-error *ngIf="
+                appointmentFormGroup.get('start_time')?.invalid &&
+                appointmentFormGroup.get('start_time')?.touched &&
+                appointmentFormGroup.get('start_time')?.errors?.['required']">
+                  Start time is required.
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="col-md-6">
+              <mat-form-field class="w-100 pb-3">
+                <input matInput [ngxTimepicker]="EndTime" formControlName="end_time" />
+                <mat-label>End time</mat-label>
+                <ngx-material-timepicker #EndTime></ngx-material-timepicker>
+                <mat-error *ngIf="
+                appointmentFormGroup.get('end_time')?.invalid &&
+                appointmentFormGroup.get('end_time')?.touched &&
+                appointmentFormGroup.get('end_time')?.errors?.['required']">
+                  End time is required.
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-green-solid" [disabled]="!appointmentFormGroup.valid || clicked"
+          (click)="submitForm()">
+          Save changes
+        </button>
+        <button type="button" class="btn-orange-solid" data-bs-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

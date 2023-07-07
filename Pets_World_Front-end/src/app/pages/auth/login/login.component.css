@@ -1,0 +1,27 @@
+.title::before {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 2px;
+  background: rgba(239, 80, 48, 0.2);
+  margin-right: 0px;
+}
+
+.title::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 2px;
+  background: rgba(239, 80, 48, 0.2);
+  margin-left: 0px;
+}
+
+.card {
+  box-shadow: 2px 0px 20px #cecece;
+  border: none;
+}
+
+label,
+h5 {
+  font-size: 14px;
+}

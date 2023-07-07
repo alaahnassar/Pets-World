@@ -1,0 +1,15 @@
+.appointment {
+  /* background-color: #fff; */
+  object-fit: cover;
+  /* border-radius: 1rem; */
+  padding: 2rem;
+  text-align: center;
+  /* position: relative; */
+  /* box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2); */
+  box-shadow: 2px 0px 20px #cecece;
+  border: none;
+}
+
+.modal-dialog {
+  z-index: 9999;
+}

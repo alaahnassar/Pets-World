@@ -1,0 +1,30 @@
+<h1 class="text-center my-5">Keepers</h1>
+<section class="container">
+  <div class="row">
+    <div *ngFor="let keeper of pagedKeepers" class="p-3 col-md-3">
+      <div class="card text-center my-3" style="width: 19rem;">
+        <div style="height: 200px; object-fit: cover;">
+          <img [src]="keeper.userImage" height="100%" width="100%" class="card-img-top" alt="...">
+        </div>
+        <div class="card-body bg-light">
+          <h4 class="pt-2 text-capitalize fs-4">{{keeper?.owner_id?.user_id?.firstName}}
+            {{keeper.owner_id.user_id.lastName}}</h4>
+          <h4 class="text-p">
+            Years of Experience + {{ keeper.experience }}
+          </h4>
+          <h4 class="text-p">
+            Cost: {{keeper.cost}}
+          </h4>
+          <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn-green-solid m-2"
+            (click)="viewKeeper(keeper)">
+            View
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="my-3">
+    <mat-paginator [length]="keepers.length" [pageSize]="pageSize" (page)="onPageChange($event)">
+    </mat-paginator>
+  </div>
+</section>

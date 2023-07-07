@@ -1,0 +1,143 @@
+<div class="container py-5">
+  <div *ngIf="keeperAppointments?.length > 0; else noAppointment">
+    <div class="d-flex">
+      <form [formGroup]="form" class="pt-3">
+        <!-- Appointments -->
+        <mat-form-field class="w-100 pb-3">
+          <mat-label>Appointments</mat-label>
+          <mat-select formControlName="appointment" (selectionChange)="onAppointmentChange()">
+            <mat-option *ngFor="let option of keeperAppointments" [value]="option._id">
+              {{ option.start_time | date: 'MMMM, dd' }} : {{ option.end_time | date: 'MMMM, dd' }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </form>
+    </div>
+    <div class="card-wrapper">
+      <div class="row" *ngIf="keeperBookingData?.length > 0; else noBooking">
+        <ng-container *ngFor="let booking of pagedKeeperBookingData; let i = index">
+          <div class="col-md-6 mb-3">
+            <!-- <mat-card class="example-card">
+              <mat-card-content>
+                <div class="d-flex flex-column flex-sm-row w-100">
+                  <img class="mb-1" mat-card-lg-image [src]="booking?.userImage" alt="Angular Logo">
+                  <div class="ms-3 w-75">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <h2 class="text-capitalize mb-2 fs-4">
+                        {{ booking?.owner_id?.user_id?.firstName }} {{ booking?.owner_id?.user_id?.lastName }}
+                      </h2>
+                      <button class="btn" (click)="deleteBooking(booking, i)">
+                        <i class="fa-solid fa-trash text-danger fs-6"></i>
+                      </button>
+                    </div>
+                    <ul class="list-group">
+                      <li
+                        class="list-group-item border-0 px-0 fs-6 py-1 fw-normal d-flex flex-wrap justify-content-between"
+                        style="color: #989797;">
+                        <span>Pet Name</span> {{ booking?.pet_id?.name }}
+                      </li>
+                      <li
+                        class="list-group-item border-0 px-0 fs-6 py-1 fw-normal d-flex flex-wrap justify-content-between"
+                        style="color: #989797;">
+                        <span>Booking Time</span>
+                        {{ booking?.appointment_id?.start_time | date: 'h:mm a' }}
+                        : {{ booking?.appointment_id?.end_time | date: 'h:mm a' }}
+                      </li>
+                      <li
+                        class="list-group-item border-0 px-0 fs-6 py-1 fw-normal d-flex flex-wrap justify-content-between"
+                        style="color: #989797;">
+                        <span>Phone Number</span>
+                        {{ booking?.owner_id?.user_id?.phone }}
+                      </li>
+                      <li
+                        class="list-group-item border-0 px-0 fs-6 py-1 fw-normal d-flex flex-wrap justify-content-between"
+                        style="color: #989797;">
+                        <span>Email</span>
+                        {{ booking?.owner_id?.user_id?.email }}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card> -->
+
+            <mat-card class="example-card">
+              <mat-card-content>
+                <div class="d-flex flex-column flex-sm-row w-100">
+                  <img class="" mat-card-lg-image [src]="booking?.userImage" alt="Angular Logo">
+                  <div class="ms-3 w-100">
+                    <div class="d-flex  align-items-center">
+                      <h2 class="text-capitalize mb-2 fs-4">
+                        {{ booking?.owner_id?.user_id?.firstName }} {{ booking?.owner_id?.user_id?.lastName }}
+                      </h2>
+
+                    </div>
+                    <div>
+                      <div class="my-1 ">
+                        <p class="text-green fw-semibold ">Pet Name: <span class="text-p fw-bold">
+                            {{ booking?.pet_id?.name }}
+                          </span>
+                        </p>
+                      </div>
+                      <div class="my-1">
+                        <p class="text-green fw-semibold">Booking Time:
+                          <span class="text-p fw-bold">
+                            {{ booking?.appointment_id?.start_time | date: 'MMMM, dd' }}
+                            : {{ booking?.appointment_id?.end_time | date: 'MMMM, dd' }}
+                          </span>
+                        </p>
+                      </div>
+                      <div class="my-1">
+                        <p class="text-green fw-semibold">Phone Number:
+                          <span class="text-p fw-bold">
+
+                            {{ booking?.keeper_id?.owner_id?.user_id?.phone }}
+                          </span>
+
+                        </p>
+                      </div>
+                      <div class="my-1">
+                        <p class="text-green fw-semibold">Email:
+                          <span class="text-p fw-bold">
+                            {{ booking?.keeper_id?.owner_id?.user_id?.email }}
+
+                          </span>
+                        </p>
+                      </div>
+                    </div>
+                    <button class="btn-orange-solid float-end" (click)="deleteBooking(booking, i)">
+                      delete
+                    </button>
+
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </ng-container>
+      </div>
+      <div class="my-3">
+        <mat-paginator [length]="keeperBookingData?.length" [pageSize]="pageSize" (page)="onPageChange($event)">
+        </mat-paginator>
+      </div>
+      <ng-template #noBooking>
+        <div class="card border-0 p-4">
+          <p class="fs-5 lh-base text-danger">
+            <span class="text-capitalize">
+              There is No Booking
+            </span>
+          </p>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+  <ng-template #noAppointment>
+    <div class="card border-0 p-4">
+      <p class="fs-5 lh-base text-danger">
+        <span class="text-capitalize">
+          There is No Appointments
+        </span>
+      </p>
+    </div>
+  </ng-template>
+</div>

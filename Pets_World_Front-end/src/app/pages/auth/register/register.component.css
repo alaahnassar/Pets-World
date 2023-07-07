@@ -1,0 +1,77 @@
+.register {
+  box-shadow: 2px 0px 20px #cecece;
+  border: none;
+  font-family: 'BalooThambi',
+    sans-serif !important;
+}
+
+.font {
+  font-family: 'BalooThambi',
+    sans-serif !important;
+}
+
+::ng-deep .mat-step-header .mat-step-icon-selected {
+  background-color: #ef5030 !important;
+}
+
+::ng-deep .mat-step-header .mat-step-icon-state-edit {
+  background-color: #ef5030
+}
+
+::ng-deep .mat-stepper-horizontal {
+  font-family: 'BalooThambi', sans-serif !important;
+}
+
+::ng-deep .mat-step-header .mat-step-label.mat-step-label-active {
+  color: #108896;
+}
+
+.btn-orange-solid {
+  font-family: 'BalooThambi', sans-serif !important;
+  background-color: #ef5030 !important;
+  color: #ffffff !important;
+  cursor: pointer;
+  padding: 0 20px;
+  width: auto;
+  height: 40px;
+  margin: 5px;
+  letter-spacing: 0.1px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 400;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-green-solid {
+  font-family: 'BalooThambi', sans-serif !important;
+  background-color: #108896 !important;
+  color: #ffffff !important;
+  cursor: pointer;
+  padding: 0 20px;
+  width: auto;
+  height: 40px;
+  margin: 5px;
+  letter-spacing: 0.1px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 400;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-orange-solid:hover {
+  background-color: #108896 !important;
+  transition: all 0.3s ease-in-out;
+  box-shadow: inset 0px 0px 0px 0px #108896 !important;
+}
+
+.btn-green-solid:hover {
+  background-color: #ef5030 !important;
+  transition: all 0.3s ease-in-out;
+  box-shadow: inset 0px 0px 0px 0px #ef5030 !important;
+}

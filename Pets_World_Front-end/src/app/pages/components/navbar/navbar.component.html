@@ -1,0 +1,123 @@
+<nav class="navbar navbar-expand-lg bg-orange">
+  <div class="container">
+    <div *ngIf="role==undefined">
+      <a class href="#">
+        <img src="../../../assets/images/landing/logo.png" alt="Petz" width="180" height="67">
+      </a>
+    </div>
+    <div *ngIf="role=='vet'">
+      <a class routerLink="/vet/schedule">
+        <img src="../../../assets/images/landing/logo.png" alt="Petz" width="180" height="67">
+      </a>
+    </div>
+    <div *ngIf="role=='owner'">
+      <a class routerLink="/user">
+        <img src="../../../assets/images/landing/logo.png" alt="Petz" width="180" height="67">
+      </a>
+    </div>
+    <div *ngIf="role=='keeper'">
+      <a class routerLink="/user">
+        <img src="../../../assets/images/landing/logo.png" alt="Petz" width="180" height="67">
+      </a>
+    </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mx-auto " *ngIf="role==undefined">
+        <li class="nav-item p-2">
+          <a class="nav-link " aria-current="page" href="#header">Home</a>
+        </li>
+        <li class="nav-item p-2">
+          <a class="nav-link " href="#about">About Us</a>
+        </li>
+        <li class="nav-item p-2">
+          <a class="nav-link " href="#service">Services</a>
+        </li>
+        <li class="nav-item p-2">
+          <a class="nav-link " routerLink="/login">Login</a>
+        </li>
+
+      </ul>
+
+      <!-- vet navbar -->
+      <ul class="navbar-nav mx-auto " *ngIf="role=='vet'">
+        <li class="nav-item p-2">
+          <a class="nav-link " aria-current="page" routerLink="/vet/schedule">Vet Schedule</a>
+        </li>
+        <li class="nav-item p-2">
+          <a class="nav-link " routerLink="/vet/appointments">Appointments</a>
+        </li>
+      </ul>
+
+      <!-- user navbar -->
+      <ul class="navbar-nav mx-auto " *ngIf="role=='owner'">
+        <li class="nav-item p-2">
+          <a class="nav-link " aria-current="page" routerLink="/user">Home</a>
+        </li>
+        <li class="nav-item p-2">
+        </li>
+        <li class="nav-item p-2">
+          <a class="nav-link " routerLink="/user/vets">Vets</a>
+        </li>
+        <li class="nav-item p-2">
+          <a class="nav-link " routerLink="/user/keepers">Keepers</a>
+        </li>
+        <li class="nav-item p-2">
+          <a class="nav-link " routerLink="/user/pets">My Pets</a>
+        </li>
+      </ul>
+
+      <!-- keeper navbar -->
+      <ul class="navbar-nav mx-auto " *ngIf="role=='keeper'">
+        <li class="nav-item p-2">
+          <a class="nav-link " aria-current="page" routerLink="/user">Home</a>
+        </li>
+        <li class="nav-item p-2">
+          <a class="nav-link " routerLink="/user/keeper/schedule">Keeper Schedule</a>
+        </li>
+        <li class="nav-item p-2">
+          <a class="nav-link " routerLink="/user/keeper/appointments">Keeper Appointments</a>
+        </li>
+        <li class="nav-item p-2">
+          <a class="nav-link " routerLink="/user/vets">Vets</a>
+        </li>
+        <li class="nav-item p-2">
+          <a class="nav-link " routerLink="/user/keepers">Keepers</a>
+        </li>
+        <li class="nav-item p-2">
+          <a class="nav-link " routerLink="/user/pets">My Pets</a>
+        </li>
+      </ul>
+    </div>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown" *ngIf="role!=undefined">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <img [src]="userData.userImage" class="rounded-5" width="50px" height="50px" alt="">
+            {{userData.firstName}} {{userData.lastName}}
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li class="nav-item p-2" *ngIf="role=='vet'">
+              <a class="dropdown-item" routerLink="/vet/edit">Profile</a>
+            </li>
+            <li class="nav-item p-2" *ngIf="role == 'owner' || role == 'keeper'">
+              <a class="dropdown-item" routerLink="/user/edit">Profile</a>
+            </li>
+            <li class="nav-item p-2">
+              <a class="dropdown-item" routerLink="/update/password">Update Password</a>
+            </li>
+            <li class="nav-item p-2" *ngIf="role == 'owner' || role == 'keeper'">
+              <a class="dropdown-item" routerLink="/user/schedule">Owner Schedule</a>
+            </li>
+            <li class="nav-item p-2">
+              <button class="dropdown-item" (click)="logout()">Logout</button>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

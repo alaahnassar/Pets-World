@@ -1,0 +1,25 @@
+<h1 class="text-center my-5">Vets</h1>
+<section class="container">
+  <div class="row">
+    <div *ngFor="let vet of pagedVets" class="p-3 col-md-3">
+      <div class="card text-center my-3" style="width: 19rem;">
+        <div style="height: 200px; object-fit: cover;">
+          <img [src]="vet.userImage" height=" 100%" width="100%" class="card-img-top" alt="...">
+        </div>
+        <div class="card-body bg-light">
+          <h4 class="pt-2 text-capitalize fs-4">{{vet.user_id.firstName}} {{vet.user_id.lastName}}</h4>
+          <h4 class="text-p "> Years of Experience + {{ vet.experience }}</h4>
+          <h4 class="text-p "> Cost: {{vet.cost}} </h4>
+          <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn-green-solid m-2"
+            (click)="viewVet(vet)">
+            View
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="my-3">
+    <mat-paginator [length]="vets.length" [pageSize]="pageSize" (page)="onPageChange($event)">
+    </mat-paginator>
+  </div>
+</section>

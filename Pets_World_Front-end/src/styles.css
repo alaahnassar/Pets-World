@@ -1,0 +1,152 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+
+@font-face {
+  font-family: 'BalooThambi';
+  src: url('./assets/fonts/BalooThambi-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'BalooThambi', sans-serif !important;
+  background-color: #f8f9fa !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'BalooThambi' !important;
+  font-weight: 500;
+}
+
+p,
+input {
+  font-family: Roboto, sans-serif !important;
+}
+
+.text-orange {
+  color: #f19f1f;
+}
+
+.text-green {
+  color: #108896;
+}
+
+.text-p {
+  font-weight: 200;
+  color: #7a7a7a;
+}
+
+.bg-orange {
+  background-color: #f19f1f;
+}
+
+.bg-green {
+  background-color: #108896;
+}
+
+.bg-light {
+  background-color: #f5f3ee !important
+}
+
+.btn-orange {
+  background-color: #ef5030 !important;
+  color: #ffffff !important;
+  box-shadow: inset 9px 0px 0px 0px #F19F1F !important;
+  cursor: pointer;
+  padding: 0 30px;
+  width: auto;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  letter-spacing: 0.1px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 400;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-orange:hover {
+  background-color: #108896 !important;
+  transition: all 0.3s ease-in-out;
+  box-shadow: inset 0px 0px 0px 0px #108896 !important;
+}
+
+.btn-orange-solid {
+  font-family: 'BalooThambi', sans-serif !important;
+  background-color: #ef5030 !important;
+  color: #ffffff !important;
+  cursor: pointer;
+  padding: 0 20px;
+  width: auto;
+  height: 40px;
+  margin: 5px;
+  letter-spacing: 0.1px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 400;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-green-solid {
+  font-family: 'BalooThambi', sans-serif !important;
+  background-color: #108896 !important;
+  color: #ffffff !important;
+  cursor: pointer;
+  padding: 0 20px;
+  width: auto;
+  height: 40px;
+  margin: 5px;
+  letter-spacing: 0.1px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 400;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-orange-solid:hover {
+  background-color: #108896 !important;
+  transition: all 0.3s ease-in-out;
+  box-shadow: inset 0px 0px 0px 0px #108896 !important;
+}
+
+.btn-green-solid:hover {
+  background-color: #ef5030 !important;
+  transition: all 0.3s ease-in-out;
+  box-shadow: inset 0px 0px 0px 0px #ef5030 !important;
+}
+
+/*  box-shadow: 2px 0px 20px #cecece;
+ border: none; */
+/* .card {
+  box-shadow: 2px 0px 20px #cecece;
+  border: none;
+} */
+
+.cdk-overlay-container {
+  z-index: 1200 !important;
+}
+
+.timepicker-overlay {
+  z-index: 1200 !important;
+}

@@ -1,0 +1,210 @@
+<!-- header -->
+<owl-carousel-o id="header" [options]="headerOptions" class="text-white">
+
+  <ng-template carouselSlide>
+    <div style="background-image: url('../../../assets/images/landing/slide0.jpg');background-size:cover;height: 90vh;">
+      <div class>
+        <div class="overlay"></div>
+        <div class="container">
+          <div class="header-content ">
+            <h1 class="pt-5">
+              WELCOME TO PETZ </h1>
+
+            <div class>
+              <p class="py-3">
+                Petz a fun HTML5 Pet Template with many elements for your Pet
+                related website </p>
+
+              <a href="#service" class="btn-orange">
+                Our Service </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </ng-template>
+  <ng-template carouselSlide>
+    <div style="background-image: url('../../../assets/images/landing/slide1.jpg');background-size:cover;height: 90vh;">
+      <div>
+        <div class="overlay"></div>
+        <div class="container ">
+          <div class="header-content ">
+            <h1 class="pt-5">
+
+              AMAZING SERVICES </h1>
+
+            <div class="">
+              <p class="py-3">
+                We offer all the best quality products for your best friend.
+              </p>
+
+              <a href="#service" class="btn-orange">
+                Our Service </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </ng-template>
+  <ng-template carouselSlide>
+    <div style="background-image: url('../../../assets/images/landing/slide2.jpg');background-size:cover;height: 90vh;">
+      <div>
+        <div class="overlay"></div>
+        <div class="container ">
+          <div class="header-content  ">
+            <h1 class="pt-5">
+
+              WE LOVE PET</h1>
+
+            <div class="">
+              <p class="py-3">
+                We offer all the best quality products for your best friend
+              </p>
+
+              <a href="#service" class="btn-orange">
+                Our Service </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</owl-carousel-o>
+<!-- About Us  -->
+<section id="about" class="about h-100 bg-light">
+  <div class="container">
+    <div class=" title row justify-content-center text-center ">
+      <div class="col-3  ">
+        <h2 class=" py-3 text-green">About us</h2>
+      </div>
+    </div>
+    <div class="row justify-content-between align-items-center pt-5">
+      <div class="col-12 col-md-6">
+        <div class="row">
+          <div class="col-10">
+            <h2>How We Started</h2>
+            <p class="text-p py-3">Elit uasi quidem minus id omnis a nibh fusce mollis imperdie tlorem
+              ipuset phas
+              ellus ac sodales Lorem
+              ipsum dolor Phas
+              ellus ac sodales felis tiam non metus. lorem ipsum dolor sit amet, consectetur adipisicing elit uasi
+              quidem minus id
+              omnis a nibh fusce mollis imperdie tlorem ipuset campas fincas
+
+              Phas ellus ac sodales felis tiam non metus. lorem ipsum dolor sit amet, consectetur adipisicing elit uasi
+              quidem minus
+              id omnis a nibh fusce mollis imperdie tlorem ipuset campas fincas
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div>
+          <img src="../../../assets/images/landing/about.jpg" alt="">
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- services -->
+<section id="service" class="services pb-3 ">
+  <div class="container">
+    <div class=" title row justify-content-center text-center ">
+      <div class="col-4 ">
+        <h2 class=" py-3 text-green">Our Services</h2>
+      </div>
+    </div>
+    <owl-carousel-o [options]="serviceOptions" class="row justify-content-between align-items-center py-3">
+
+      <ng-template carouselSlide class="my-3 col-4">
+        <div class="card text-center p-0" style="width: 24rem;">
+          <img src="../../../assets/images/landing/dog1.jpg" width="100%" height="200px" class="card-img-top" alt="...">
+          <div class="card-body bg-light ">
+            <h4 class="pt-2">Affenpinscher</h4>
+            <p class="text-p py-3" style="height: 100px;">
+              Stubborn, Curious, Playful, Adventurous, Active, Fun-loving
+            </p>
+            <a routerLink="/login" class="btn-orange mx-auto">For Details</a>
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template carouselSlide class="my-3 col-4">
+        <div class="card text-center p-0" style="width: 24rem;">
+          <img src="../../../assets/images/landing/cat1.webp" width="100%" height="200px" class="card-img-top"
+            alt="...">
+          <div class="card-body bg-light ">
+            <h4 class="pt-2">Abyssinian</h4>
+            <p class="text-p py-3" style="height: 100px;">The Abyssinian is easy to care for, and a joy to have in your
+              home
+            </p>
+            <a routerLink="/login" class="btn-orange mx-auto">For Details</a>
+          </div>
+        </div>
+
+      </ng-template>
+
+      <ng-template carouselSlide class="my-3 col-4">
+        <div class="card text-center p-0" style="width: 24rem;">
+          <img src="../../../assets/images/landing/bird1.jpg" width="100%" height="200px" class="card-img-top"
+            alt="...">
+          <div class="card-body bg-light ">
+            <h4 class="pt-2">Cockatiel</h4>
+            <p class="text-p py-3" style="height: 100px;">They are prized as household pets and companion parrots
+              throughout the world and are
+              relatively easy to breed
+            </p>
+            <a routerLink="/login" class="btn-orange mx-auto">For Details</a>
+          </div>
+        </div>
+
+      </ng-template>
+
+      <ng-template carouselSlide class="my-3 col-4">
+        <div class="card text-center p-0" style="width: 24rem;">
+          <img src="../../../assets/images/landing/dog2.jpg" width="100%" height="200px" class="card-img-top" alt="...">
+          <div class="card-body bg-light ">
+            <h4 class="pt-2">Akbash Dog</h4>
+            <p class="text-p py-3" style="height: 100px;">Loyal, Independent, Intelligent, Brave
+            </p>
+            <a routerLink="/login" class="btn-orange mx-auto">For Details</a>
+          </div>
+        </div>
+
+      </ng-template>
+      <ng-template carouselSlide class="my-3 col-4">
+        <div class="card text-center p-0" style="width: 24rem;">
+          <img src="../../../assets/images/landing/cat2.jpg" width="100%" height="200px" class="card-img-top" alt="...">
+          <div class="card-body bg-light ">
+            <h4 class="pt-2">American Curl</h4>
+            <p class="text-p py-3" style="height: 100px;">Distinguished by truly unique ears that curl back in a
+              graceful arc, offering an alert, perky, happily surprised
+              expression.
+            </p>
+            <a routerLink="/login" class="btn-orange mx-auto">For Details</a>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template carouselSlide class="my-3 col-4">
+        <div class="card text-center p-0" style="width: 24rem;">
+          <img src="../../../assets/images/landing/bird2.jpg" width="100%" height="200px" class="card-img-top"
+            alt="...">
+          <div class="card-body bg-light ">
+            <h4 class="pt-2">Finch</h4>
+            <p class="text-p py-3" style="height: 100px;">The true finches are small to medium-sized passerine birds in
+              the family Fringillidae
+              expression.
+            </p>
+            <a routerLink="/login" class="btn-orange mx-auto">For Details</a>
+          </div>
+        </div>
+      </ng-template>
+    </owl-carousel-o>
+  </div>
+</section>

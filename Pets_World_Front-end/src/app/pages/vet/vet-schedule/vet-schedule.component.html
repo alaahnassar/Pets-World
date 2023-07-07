@@ -1,0 +1,88 @@
+<div class="bg-light">
+  <div class="container py-5">
+    <div class="d-flex align-items-start">
+      <form [formGroup]="form" class="pt-3">
+        <!-- Day -->
+        <mat-form-field class="w-100 pb-2">
+          <mat-label>Day</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="day" required />
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </form>
+    </div>
+    <div class="card-wrapper">
+      <div class="row" *ngIf="vetBookingData?.length > 0; else noBooking">
+        <ng-container *ngFor="let booking of pagedVetBookingData; let i = index">
+          <div class="col-md-6 mb-3">
+            <mat-card class="example-card">
+              <mat-card-content>
+                <div class="d-flex flex-column flex-sm-row w-100">
+                  <img class="" mat-card-lg-image [src]="booking?.userImage" alt="Angular Logo">
+                  <div class="ms-3 w-100">
+                    <div class="d-flex  align-items-center">
+                      <h2 class="text-capitalize mb-2 fs-4">
+                        Dr. {{ booking?.vet_id?.user_id?.firstName }} {{ booking?.vet_id?.user_id?.lastName }}
+                      </h2>
+
+                    </div>
+                    <div>
+                      <div class="my-1 ">
+                        <p class="text-green fw-semibold ">Pet Name: <span class="text-p fw-bold">{{
+                            booking?.pet_id?.name}}</span>
+                        </p>
+                      </div>
+                      <div class="my-1">
+                        <p class="text-green fw-semibold">Booking Time:
+                          <span class="text-p fw-bold">
+                            {{ booking?.appointment_id?.start_time }}
+                            : {{ booking?.appointment_id?.end_time }}
+                          </span>
+                        </p>
+                      </div>
+                      <div class="my-1">
+                        <p class="text-green fw-semibold">Phone Number:
+                          <span class="text-p fw-bold">
+
+                            {{ booking?.vet_id?.user_id?.phone }}
+                          </span>
+
+                        </p>
+                      </div>
+                      <div class="my-1">
+                        <p class="text-green fw-semibold">Email:
+                          <span class="text-p fw-bold">
+                            {{ booking?.vet_id?.user_id?.email }}
+
+                          </span>
+                        </p>
+                      </div>
+                    </div>
+                    <button class="btn-orange-solid float-end" (click)="deleteBooking(booking, i)">
+                      delete
+                    </button>
+
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card>
+
+          </div>
+        </ng-container>
+      </div>
+      <div class="my-3">
+        <mat-paginator [length]="vetBookingData?.length" [pageSize]="pageSize" (page)="onPageChange($event)">
+        </mat-paginator>
+      </div>
+      <ng-template #noBooking>
+        <div class="card border-0 p-4">
+          <p class="fs-5 lh-base text-danger">
+            <span class="text-capitalize">
+              There is No Booking
+            </span>
+          </p>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

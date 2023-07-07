@@ -1,0 +1,30 @@
+.card {
+  box-shadow: 2px 0px 20px #cecece;
+  border: none;
+}
+
+::ng-deep .mdc-checkbox .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background,
+.mdc-checkbox .mdc-checkbox__native-control:enabled:indeterminate~.mdc-checkbox__background,
+.mdc-checkbox .mdc-checkbox__native-control[data-indeterminate="true"]:enabled~.mdc-checkbox__background {
+  border-color: #108896 !important;
+  background-color: #108896 !important;
+}
+
+::ng-deep .mat-mdc-form-field-icon-suffix {
+  align-self: auto !important;
+}
+
+.font {
+  font-family: 'BalooThambi' !important;
+  font-weight: 500;
+}
+
+.icon {
+  background-color: transparent !important;
+  border: none !important;
+  padding: 0 10px !important;
+}
+
+.icon:hover {
+  color: #108896 !important;
+}

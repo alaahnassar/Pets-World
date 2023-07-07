@@ -1,0 +1,63 @@
+<form (ngSubmit)="onSubmit()" class="card w-50 mx-auto p-5 my-5">
+  <h1 class="text-center pb-3">Edit Your Profile</h1>
+  <!-- User fields -->
+  <div class="row">
+    <mat-form-field class="col-6 my-1">
+      <mat-label>First Name</mat-label>
+      <input matInput placeholder="First Name" [(ngModel)]="owner.user_id.firstName" name="firstName">
+    </mat-form-field>
+    <mat-form-field class="col-6 my-1">
+      <mat-label>Last Name</mat-label>
+      <input matInput placeholder="Last Name" [(ngModel)]="owner.user_id.lastName" name="lastName">
+    </mat-form-field>
+    <mat-form-field class="col-12 my-1">
+      <mat-label>Email</mat-label>
+      <input matInput disabled [(ngModel)]="owner.user_id.email" name="email">
+    </mat-form-field>
+    <mat-form-field class="col-6 my-1">
+      <mat-label>Phone</mat-label>
+      <input matInput placeholder="Phone" [(ngModel)]="owner.user_id.phone" name="phone">
+    </mat-form-field>
+    <mat-form-field class="col-6 my-1">
+      <mat-label>Gender</mat-label>
+      <mat-select [(ngModel)]="owner.user_id.gender" name="gender">
+        <mat-option value="male">Male</mat-option>
+        <mat-option value="female">Female</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="col-12 my-1">
+      <mat-label>Image</mat-label>
+      <button mat-icon-button matSuffix class="icon" (click)="onUserImageClick($event)">
+        <mat-icon>folder_open</mat-icon>
+      </button>
+      <input type="text" readonly matInput name="image" />
+      <input type="file" hidden #hiddenInput (change)="onUserImageChange($event)" accept="image/*" />
+      <img *ngIf="ownerImage" [src]="ownerImage" alt="owner Image" class="owner-image" width="200px" height="200px" />
+    </mat-form-field>
+
+  </div>
+
+  <!-- Owner fields -->
+  <div class="row">
+    <mat-checkbox class="col-12 my-1" [(ngModel)]="owner.isKeeper" name="isKeeper">
+      <strong class="font">Is Keeper</strong>
+    </mat-checkbox>
+    <mat-form-field class="col-6 my-1" *ngIf="owner.isKeeper">
+      <input matInput type="number" placeholder="Experience" [(ngModel)]="keeper.experience" name="experience">
+    </mat-form-field>
+    <mat-form-field class="col-6 my-1" *ngIf="owner.isKeeper">
+      <input matInput type="number" placeholder="Cost" [(ngModel)]="keeper.cost" name="cost">
+    </mat-form-field>
+    <mat-form-field class="col-12 my-1" *ngIf="owner.isKeeper">
+      <input matInput placeholder="Address" [(ngModel)]="keeper.address" name="address">
+    </mat-form-field>
+    <mat-form-field class="col-12 my-1" *ngIf="owner.isKeeper">
+      <textarea matInput placeholder="Description" [(ngModel)]="keeper.description" name="description"></textarea>
+    </mat-form-field>
+  </div>
+
+  <!-- Submit button -->
+  <div class="d-flex justify-content-end">
+    <button mat-raised-button class="btn-green-solid " style="width: 150px;" type="submit">Update</button>
+  </div>
+</form>
