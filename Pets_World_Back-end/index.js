@@ -41,9 +41,11 @@ app.use((req, res, next) => {
   next();
 });
 app.use(cors());
-// app.use(cors({
-//   origin: 'http://localhost:4200' // Replace with your Angular app's URL
-// }));
+app.use(
+  cors({
+    origin: "http://localhost:4200", // Replace with your Angular app's URL
+  })
+);
 
 app.use(express.json());
 app.use("/assets", express.static("assets"));
